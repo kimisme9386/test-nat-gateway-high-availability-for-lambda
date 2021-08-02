@@ -1,4 +1,4 @@
-const { AwsCdkTypeScriptApp } = require('projen');
+const { AwsCdkTypeScriptApp, DependenciesUpgradeMechanism } = require('projen');
 
 const project = new AwsCdkTypeScriptApp({
   cdkVersion: '1.116.0',
@@ -12,5 +12,8 @@ const project = new AwsCdkTypeScriptApp({
       'ap-northeast-1c',
     ],
   },
+  depsUpgrade: DependenciesUpgradeMechanism.NONE,
+  buildWorkflow: false,
+  stale: false,
 });
 project.synth();
